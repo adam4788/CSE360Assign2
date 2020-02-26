@@ -7,6 +7,15 @@ Description: Simple list class with methods to manipulate the int array of 10
 */
 import java.util.Arrays;
 
+/**
+ * @author Adam Nugroho
+ * Class Id: 109
+ * Assignment:
+ * Description:
+ */
+/**
+ * @author Adam Nugroho Class Id: 109 Assignment: Description:
+ */
 public class SimpleList {
 
 	private int[] list;
@@ -101,6 +110,57 @@ public class SimpleList {
 			}
 		}
 		return location;
+	}
+
+	/**
+	 * This method adds an element to the end of the list
+	 * 
+	 * @param number is the element to be appended
+	 */
+	public void append(int number) {
+		if (count == list.length) {
+			int[] temp = new int[(int) (list.length * 1.5)];
+			for (int increment = 0; increment < list.length; increment++) {
+				temp[increment] = list[increment];
+			}
+			list = temp;
+		}
+		list[count] = number;
+		count++;
+	}
+
+	/**
+	 * This method returns the first element of the list
+	 * 
+	 * @return first element of the list (-1 if empty)
+	 */
+	public int first() {
+		int first = -1;
+		if (count > 0)
+			first = list[0];
+		return first;
+	}
+
+	/**
+	 * This method returns the last element of the list
+	 * 
+	 * @return last element of the list (-1 if empty)
+	 */
+	public int last() {
+		int last = -1;
+		if (count > 0)
+			last = list[count - 1];
+		return last;
+	}
+
+	/**
+	 * This method return the current number of possible locations in the list
+	 * 
+	 * @return the current number of possible locations in the list
+	 */
+	public int size() {
+		int size = list.length - count - 1;
+		return size;
 	}
 
 }
