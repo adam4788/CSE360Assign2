@@ -26,6 +26,13 @@ public class SimpleList {
 	 * @param x is the element to be added
 	 */
 	public void add(int number) {
+		if (count == list.length) {
+			int[] temp = new int[(int) (list.length * 1.5)];
+			for (int increment = 0; increment < list.length; increment++) {
+				temp[increment] = list[increment];
+			}
+			list = temp;
+		}
 		for (int increment = list.length - 1; increment > 0; increment--) {
 			list[increment] = list[increment - 1];
 		}
@@ -39,6 +46,13 @@ public class SimpleList {
 	 * @param number is the element to be removed
 	 */
 	public void remove(int number) {
+		if (count < list.length * 0.75) {
+			int[] temp = new int[(int) (list.length * 0.75)];
+			for (int increment = 0; increment < list.length; increment++) {
+				temp[increment] = list[increment];
+			}
+			list = temp;
+		}
 		int location = search(number);
 		if (location != -1) {
 			for (int increment = 0; increment < list.length - 1; increment++) {
